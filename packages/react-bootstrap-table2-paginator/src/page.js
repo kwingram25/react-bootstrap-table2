@@ -1,16 +1,23 @@
-export const getByCurrPage = (store, pageStartIndex) => {
-  const dataSize = store.data.length;
+export const getByCurrPage = (
+  data,
+  page,
+  sizePerPage,
+  pageStartIndex
+) => {
+  const dataSize = data.length;
   if (!dataSize) return [];
+
   const getNormalizedPage = () => {
     const offset = Math.abs(1 - pageStartIndex);
-    return store.page + offset;
+    return page + offset;
   };
-  const end = (getNormalizedPage() * store.sizePerPage) - 1;
-  const start = end - (store.sizePerPage - 1);
+
+  const end = (getNormalizedPage() * sizePerPage) - 1;
+  const start = end - (sizePerPage - 1);
 
   const result = [];
   for (let i = start; i <= end; i += 1) {
-    result.push(store.data[i]);
+    result.push(data[i]);
     if (i + 1 === dataSize) break;
   }
   return result;
