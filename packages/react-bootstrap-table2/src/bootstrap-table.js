@@ -15,16 +15,6 @@ class BootstrapTable extends PropsBaseResolver(Component) {
   constructor(props) {
     super(props);
     this.validateProps();
-
-    this.state = {
-      data: props.data
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      data: nextProps.data
-    });
   }
 
   render() {
@@ -39,6 +29,7 @@ class BootstrapTable extends PropsBaseResolver(Component) {
 
   renderTable() {
     const {
+      data,
       columns,
       keyField,
       id,
@@ -71,7 +62,7 @@ class BootstrapTable extends PropsBaseResolver(Component) {
     const headerCellSelectionInfo = this.resolveSelectRowPropsForHeader({
       onAllRowsSelect: this.props.onAllRowsSelect,
       selected: this.props.selected,
-      allRowsSelected: isSelectedAll(this.state.data, this.props.selected)
+      allRowsSelected: isSelectedAll(data, this.props.selected)
     });
 
     const tableCaption = (caption && <Caption>{ caption }</Caption>);
@@ -89,7 +80,7 @@ class BootstrapTable extends PropsBaseResolver(Component) {
             selectRow={ headerCellSelectionInfo }
           />
           <Body
-            data={ this.state.data }
+            data={ data }
             keyField={ keyField }
             columns={ columns }
             isEmpty={ this.isEmpty() }
