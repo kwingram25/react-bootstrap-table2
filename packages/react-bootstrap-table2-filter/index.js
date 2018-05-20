@@ -1,11 +1,11 @@
 import TextFilter from './src/components/text';
 import SelectFilter from './src/components/select';
 import NumberFilter from './src/components/number';
-import wrapperFactory from './src/wrapper';
+import createContext from './src/context';
 import * as Comparison from './src/comparison';
 
 export default (options = {}) => ({
-  wrapperFactory,
+  createContext,
   options
 });
 
