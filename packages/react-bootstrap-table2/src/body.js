@@ -4,6 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cs from 'classnames';
+import CSSTransitionGroup from 'react-transition-group';
 
 import _ from './utils';
 import Row from './row';
@@ -96,7 +97,14 @@ const Body = (props) => {
   }
 
   return (
-    <tbody>{ content }</tbody>
+    <tbody>
+      <CSSTransitionGroup
+        transitionName="example"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}>
+        { content }
+      </CSSTransitionGroup>
+    </tbody>
   );
 };
 
