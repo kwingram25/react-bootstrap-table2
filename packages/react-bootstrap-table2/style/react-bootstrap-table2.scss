@@ -4,20 +4,20 @@
     table-layout: fixed;
   }
 
-  tr.enter {
+  tr.tr-enter {
     opacity: 0.01;
   }
 
-  tr.enter.enter-active {
+  tr.tr-enter.tr-enter-active {
     opacity: 1;
     transition: opacity 500ms ease-in;
   }
 
-  tr.leave {
+  tr.tr-leave {
     opacity: 1;
   }
 
-  tr.leave.leave-active {
+  tr.tr-leave.tr-leave-active {
     opacity: 0.01;
     transition: opacity 300ms ease-in;
   }
